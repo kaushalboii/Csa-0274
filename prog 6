@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h>
+
+int isArmstrong(int num) {
+    int sum = 0, temp = num;
+    int n = 0;
+    while (temp != 0) {
+        n++;
+        temp /= 10;
+    }
+    temp = num;
+    while (temp != 0) {
+        int digit = temp % 10;
+        sum += pow(digit, n);
+        temp /= 10;
+    }
+    if (sum == num) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+void findArmstrongNumbers(int start, int end) {
+    printf("Armstrong numbers between %d and %d are: ", start, end);
+    for (int i = start; i <= end; i++) {
+        if (isArmstrong(i)) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int start, end;
+    printf("Enter two numbers to find Armstrong numbers between them: ");
+    scanf("%d %d", &start, &end);
+    findArmstrongNumbers(start, end);
+    return 0;
+}
