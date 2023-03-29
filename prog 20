@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+
+void removeExtraSpaces(char *str) {
+    int i, j, k;
+    int len = strlen(str);
+
+    for(i = 0; i < len; i++){
+        if(str[i] == ' ' && str[i+1] == ' '){
+            for(j = i + 1; j < len; j++){
+                if(str[j] != ' '){
+                    break;
+                }
+            }
+            for(k = j; k <= len; k++){
+                str[i+1] = str[k];
+                i++;
+            }
+            len = strlen(str);
+        }
+    }
+}
+
+int main() {
+    char str[100];
+
+    printf("Enter a string: ");
+    scanf("%[^\n]", str);
+
+    removeExtraSpaces(str);
+
+    printf("String after removing extra blanks: %s\n", str);
+
+    return 0;
+}
