@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {-26, 28, 37, -26, 33, -31, -29};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int count = 0;
+    for (int i = 0; i < n; i++) {
+        if (arr[i] < 0) {
+            count++;
+        }
+    }
+
+    printf("Number of negative numbers in Array elements = %d\n", count);
+
+    return 0;
+}
