@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+// Recursive function to print all natural numbers from 1 to n
+void printNaturalNumbers(int n) {
+    if (n == 1) {
+        printf("1 ");
+        return;
+    } else {
+        printNaturalNumbers(n - 1);
+        printf("%d ", n);
+    }
+}
+
+// Main function
+int main() {
+    int n;
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    printf("The natural numbers from 1 to %d are: ", n);
+    printNaturalNumbers(n);
+    printf("\n");
+
+    return 0;
+}
