@@ -1,0 +1,48 @@
+#include <stdio.h>
+
+// Function to calculate the factorial of a number
+int factorial(int num) {
+    int fact = 1, i;
+    for (i = 1; i <= num; i++) {
+        fact *= i;
+    }
+    return fact;
+}
+
+// Function to check whether a number is a strong number or not
+int isStrong(int num) {
+    int temp = num, sum = 0, rem;
+    while (temp > 0) {
+        rem = temp % 10;
+        sum += factorial(rem);
+        temp /= 10;
+    }
+    if (num == sum) {
+        return 1; // Strong number
+    }
+    else {
+        return 0; // Not a strong number
+    }
+}
+
+// Function to print all strong numbers between two intervals
+void printStrong(int start, int end) {
+    int i;
+    printf("Strong numbers between %d and %d are:\n", start, end);
+    for (i = start; i <= end; i++) {
+        if (isStrong(i)) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int start, end;
+    printf("Enter the starting point: ");
+    scanf("%d", &start);
+    printf("Enter the ending point: ");
+    scanf("%d", &end);
+    printStrong(start, end);
+    return 0;
+}
