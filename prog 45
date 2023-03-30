@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+// Function to check whether a number is prime or not
+int isPrime(int num) {
+    int i;
+    for (i = 2; i <= num/2; i++) {
+        if (num % i == 0) {
+            return 0; // Not a prime number
+        }
+    }
+    return 1; // Prime number
+}
+
+// Function to print all prime numbers between two intervals
+void printPrimes(int start, int end) {
+    int i;
+    printf("Prime numbers between %d and %d are:\n", start, end);
+    for (i = start; i <= end; i++) {
+        if (isPrime(i)) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int start, end;
+    printf("Enter the starting point: ");
+    scanf("%d", &start);
+    printf("Enter the ending point: ");
+    scanf("%d", &end);
+    printPrimes(start, end);
+    return 0;
+}
