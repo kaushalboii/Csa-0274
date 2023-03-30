@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+#define PI 3.14159
+
+void calculate(float radius, float *diameter, float *circumference, float *area) {
+    *diameter = 2 * radius;
+    *circumference = 2 * PI * radius;
+    *area = PI * radius * radius;
+}
+
+int main() {
+    float radius, diameter, circumference, area;
+    printf("Enter the radius of a circle: ");
+    scanf("%f", &radius);
+    calculate(radius, &diameter, &circumference, &area);
+    printf("Diameter of circle = %.2f units\n", diameter);
+    printf("Circumference of circle = %.2f units\n", circumference);
+    printf("Area of circle = %.2f sq. units", area);
+    return 0;
+}
