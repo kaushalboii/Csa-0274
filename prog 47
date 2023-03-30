@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <math.h>
+
+// Function to calculate the number of digits in a number
+int countDigits(int num) {
+    int count = 0;
+    while (num != 0) {
+        count++;
+        num /= 10;
+    }
+    return count;
+}
+
+// Function to check whether a number is an Armstrong number or not
+int isArmstrong(int num) {
+    int temp = num, sum = 0, rem, digits = countDigits(num);
+    while (temp != 0) {
+        rem = temp % 10;
+        sum += pow(rem, digits);
+        temp /= 10;
+    }
+    if (num == sum) {
+        return 1; // Armstrong number
+    }
+    else {
+        return 0; // Not an Armstrong number
+    }
+}
+
+// Function to print all Armstrong numbers between two intervals
+void printArmstrong(int start, int end) {
+    int i;
+    printf("Armstrong numbers between %d and %d are:\n", start, end);
+    for (i = start; i <= end; i++) {
+        if (isArmstrong(i)) {
+            printf("%d ", i);
+        }
+    }
+    printf("\n");
+}
+
+int main() {
+    int start, end;
+    printf("Enter the starting point: ");
+    scanf("%d", &start);
+    printf("Enter the ending point: ");
+    scanf("%d", &end);
+    printArmstrong(start, end);
+    return 0;
+}
